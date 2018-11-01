@@ -1,4 +1,4 @@
-import { SELECT_ALL, SELECT_ONE, DELETE_TRANSACTION, ADD_TRANSACTION } from './actions'
+import { SELECT_ALL, SELECT_ONE, DELETE_TRANSACTION, ADD_TRANSACTION, LOGIN, ADD_USER } from './actions'
 
 let initialState = [];
 
@@ -12,6 +12,10 @@ export default (state = initialState, action) => {
             return state.filter(transaction => transaction.id !== action.payload);
         case ADD_TRANSACTION:
             return [...state, action.payload];
+        case LOGIN:
+            return [...state];
+        case ADD_USER:
+            return [...state];
         default:
             return state;
     }
