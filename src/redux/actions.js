@@ -9,7 +9,7 @@ export const ADD_USER = "ADD_USER";
 export const EDIT_TRANSACTION = "EDIT_TRANSACTION";
 
 
-const token;
+let token;
 
 const config = {
   headers: {'token': token}
@@ -36,7 +36,6 @@ export const register = (newUser) => {
     })
   })
 }
-
 
 export const selectAll = () => {
   return dispatch => {
