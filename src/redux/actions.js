@@ -56,7 +56,7 @@ export const selectOne = (id) => {
       .then(response => {
         return dispatch({
           type: SELECT_ONE,
-          payload: response.data
+          payload: response.data[0]
         })
       })
   }
@@ -86,13 +86,13 @@ export const deleteTransaction = (id) => {
   }
 }
 
-export const editTransaction = (id, editedTransaction) => {
+export const editTransaction = (editedTransaction) => {
   return dispatch => {
-    axios.patch(`http://ec2-18-223-155-83.us-east-2.compute.amazonaws.com/transactions/update/${id}`, editTransaction, config)
+    axios.patch(`http://ec2-18-223-155-83.us-east-2.compute.amazonaws.com/transactions/update/${editedTransaction.id}`, editTransaction, config)
       .then(response => {
         return dispatch({
           type: EDIT_TRANSACTION,
-          payload: response.data
+          payload: response.data[0]
         })
       })
   }
