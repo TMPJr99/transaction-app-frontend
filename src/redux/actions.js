@@ -9,13 +9,14 @@ export const ADD_USER = "ADD_USER";
 export const EDIT_TRANSACTION = "EDIT_TRANSACTION";
 
 
-const token;
+var token = "";
 
 const config = {
   headers: {'token': token}
 }
 
 export const login = (user) => {
+  return dispatch => {
   axios.post("http://ec2-18-223-155-83.us-east-2.compute.amazonaws.com/users/login", user)
   .then(response => {
     token = response.data.token;
@@ -25,8 +26,10 @@ export const login = (user) => {
     })
   })
 }
+}
 
 export const register = (newUser) => {
+  return dispatch => {
   axios.post("http://ec2-18-223-155-83.us-east-2.compute.amazonaws.com/users/new", newUser)
   .then(response => {
     token = response.data.token;
@@ -35,6 +38,7 @@ export const register = (newUser) => {
       payload: response.data
     })
   })
+}
 }
 
 
@@ -63,6 +67,7 @@ export const selectOne = (id) => {
 }
 
 export const addTransaction = (newTransaction) => {
+  return dispatch => {
   axios.post("http://ec2-18-223-155-83.us-east-2.compute.amazonaws.com/transactions/new", newTransaction)
   .then(response => {
     token = response.data.token;
@@ -71,6 +76,7 @@ export const addTransaction = (newTransaction) => {
       payload: response.data
     })
   })
+}
 }
 
 
