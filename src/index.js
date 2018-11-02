@@ -7,10 +7,17 @@ import App from './components/App';
 // import store from "./redux/store";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import LandingPage from "./components/LandingPage"
 
-ReactDOM.render(<App />, document.getElementById('root'));
-// ReactDOM.render(
-//     <BrowserRouter>
-//   <App />
-//     </BrowserRouter>
-//     , document.getElementById('root'));
+
+ReactDOM.render(
+  <Provider store={store}>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={LandingPage} />
+      </Switch>
+    </BrowserRouter>
+  </Provider>,
+
+  document.getElementById("root")
+);

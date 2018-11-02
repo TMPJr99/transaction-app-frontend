@@ -41,7 +41,6 @@ export const register = (newUser) => {
 }
 }
 
-
 export const selectAll = () => {
   return dispatch => {
     axios.get("http://ec2-18-223-155-83.us-east-2.compute.amazonaws.com/transactions", config)

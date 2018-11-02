@@ -8,7 +8,7 @@ class Transactions extends Component {
             <div className="transactionsContainer">
                 <Container>
                     <Row>
-                        {/* <TransactionsList /> */}
+                        <TransactionsList />
                     </Row>
                 </Container>
 
