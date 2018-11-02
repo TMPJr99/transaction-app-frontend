@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import { Row } from "reactstrap";
-// IMPORT FETCH TRANSACTIONS ACTION FROM ACTIONS FOLDER
+import { selectAll } from "../redux/actions";
 import { connect } from "react-redux";
+import TransactionsItem from "./TransactionsItem";
 
 class TransactionsList extends Component {
 
+    componentDidMount() {
+        this.props.selectAll();
+    }
 
     render() {
 
-        render() {
             if (this.props.transactions) {
                 return <div className="TransactionsContainer">
                     <Row>
                         {this.props.transactions.map(transaction => (
-                            <MenuItem key={transaction.id} transaction={transaction} />
+                            <TransactionsItem key={transaction.id} transaction={transaction} />
                         ))}
                     </Row>
                 </div>;
@@ -21,10 +24,8 @@ class TransactionsList extends Component {
                 return <div>Loading...</div>
             }
         }
-    }
-
 }
-
+    
 const mapStateToProps = state => {
     return {
         transactions: state.transactions
@@ -32,4 +33,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps)(TransactionsList);
+export default connect(mapStateToProps, {selectAll})(TransactionsList);

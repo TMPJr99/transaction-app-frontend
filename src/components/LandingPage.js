@@ -1,27 +1,16 @@
 import React, { Component } from 'react';  
-// import {
-//     Collapse,
-//     Navbar,
-//     NavbarToggler,
-//     NavbarBrand,
-//     Nav,
-//     NavItem,
-//     NavLink,
-//     UncontrolledDropdown,
-//     DropdownToggle,
-//     DropdownMenu,
-//     DropdownItem } from 'reactstrap';
+import TopNav from './TopNav';
 
 
 
-class Landing extends Component {
+class LandingPage extends Component {
     render() {
-      return(
-        <div>
-
-             </div>
-    )//end
+        return (
+            <div>
+                <TopNav />
+        </div>
+    )
   }
 }
 
-export default Landing;
+export default LandingPage;

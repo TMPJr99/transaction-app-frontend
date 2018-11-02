@@ -1,4 +1,12 @@
-import { SELECT_ALL, SELECT_ONE, DELETE_TRANSACTION, ADD_TRANSACTION, LOGIN, ADD_USER, EDIT_TRANSACTION } from './actions'
+import {
+  SELECT_ALL,
+  SELECT_ONE,
+  DELETE_TRANSACTION,
+  ADD_TRANSACTION,
+  LOGIN,
+  ADD_USER,
+  EDIT_TRANSACTION
+} from "./actions";
 
 let initialState = [];
 
