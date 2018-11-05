@@ -8,7 +8,7 @@ import Login from './Login'
 
 const Main = () => (
   <Switch>
-    <Route exact path="/Login" component={Login} />
+    <Route exact path="/" component={Login} />
    
   </Switch>
 )
