@@ -9,9 +9,7 @@ class LandingPage extends Component {
             <div>
                 <TopNav></TopNav>
                 {/* <Login></Login> */}
-                <img
-                    src="https://wallpapercave.com/wp/wp2514435.png"
-                    />
+              
                     
 
         </div>
