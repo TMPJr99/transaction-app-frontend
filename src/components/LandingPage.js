@@ -12,12 +12,12 @@ class LandingPage extends Component {
 
   renderForm = () => {
       this.setState({
-        renderForm: this.state.renderForm === true ? false : true,
+        renderForm: this.state.renderForm ? false : true,
       })
   }
 
   renderWhat = () => {
-    if(this.state.renderForm === true){
+    if(this.state.renderForm){
       return (
         <div>
           <TopNav renderForm={this.renderForm}></TopNav>
@@ -25,21 +25,18 @@ class LandingPage extends Component {
         </div>
     )
     }else{
-      return (<TopNav renderForm={this.renderForm}></TopNav>)
+      return (<div>
+        <TopNav renderForm={this.renderForm}></TopNav>
+      </div>)
     }
   }
 
 
     render() {
         return (
-            <div>
-              {this.renderWhat()}
-                <img
-                    src="https://wallpapercave.com/wp/wp2514435.png"
-                    />
-
-
-        </div>
+          <div>
+          {this.renderWhat()}
+          </div>
     )
   }
 }

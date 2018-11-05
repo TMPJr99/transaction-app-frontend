@@ -36,11 +36,7 @@ function TopNav(props) {
           <Typography variant="h6" color="inherit" className={classes.grow}>
             News
           </Typography>
-          <Button color="inherit">Login</Button>
-           <Button color="white" onClick={props.renderForm}><Link to="/Login">Login/Signup</Link></Button>
-           <Link to="/resume">Login&Signup</Link>
-
-
+          <Button onClick={props.renderForm} color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
     </div>
