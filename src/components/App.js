@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../App.css';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
 // import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
@@ -34,13 +34,13 @@ class Landing extends Component {
     <Navbar.Toggle />
   </Navbar.Header>
   <Navbar.Collapse>
-  
+
     <Nav pullRight>
       <NavItem eventKey={1}  href="#">
         Login/SignUp
       </NavItem>
 
-     
+
     </Nav>
   </Navbar.Collapse>
 </Navbar> */}
@@ -85,4 +85,4 @@ class Landing extends Component {
   }
 }
 
-export default App;
+export default Landing;

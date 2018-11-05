@@ -17,16 +17,16 @@ import { Link } from "react-router-dom";
 export default class TopNav extends React.Component {
     constructor(props) {
         super(props);
+        this.toggle = this.toggle.bind(this);
         this.state = {
-            modal: false
+            modal: false,
         };
 
-        this.toggle = this.toggle.bind(this);
     }
 
     toggle() {
         this.setState({
-            modal: !this.state.modal
+            modal: !this.state.modal ? true : false
         });
     }
 
@@ -40,22 +40,7 @@ export default class TopNav extends React.Component {
                     <NavItem onClick={this.toggle}> Sign In</NavItem>
                 </Nav>
             </Navbar>
-            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                <ModalHeader toggle={this.toggle}>Restaurant Login</ModalHeader>
-                <ModalBody>
-                    <Form>
-                        <Input type="email" placeholder="Email" />
-                        <Input type="password" placeholder="Password" />
-                    </Form>
-                </ModalBody>
-                <ModalFooter>
-                    <Link to={'/welcome'}>
-                        <Button color="primary" onClick={this.toggle}>
-                            Login
-            </Button>{" "}
-                    </Link>
-                </ModalFooter>
-            </Modal>
+          
         </div>;
     }
 }
