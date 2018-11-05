@@ -1,61 +1,111 @@
-import React from "react";
-import {
-    Navbar,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    Button,
-    Modal,
-    ModalHeader,
-    ModalBody,
-    ModalFooter,
-    Input,
-    Form
-} from "reactstrap";
+import React  from 'react';
 import { Link } from "react-router-dom";
 
-export default class TopNav extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            modal: false
-        };
 
-        this.toggle = this.toggle.bind(this);
-    }
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 
-    toggle() {
-        this.setState({
-            modal: !this.state.modal
-        });
-    }
+const styles = {
+  root: {
+    flexGrow: 1,
+  },
+  grow: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginLeft: -12,
+    marginRight: 20,
+  },
+};
 
-    render() {
-        return <div>
-            <Navbar color="light" light expand="md">
-                <NavbarBrand href="/">
-                    <img className="morph" src="https://s3-us-west-1.amazonaws.com/morphmenuslogo/logo.png" alt="morph menus logo" />
-                </NavbarBrand>
-                <Nav className="ml-auto" navbar>
-                    <NavItem onClick={this.toggle}> Sign In</NavItem>
-                </Nav>
-            </Navbar>
-            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                <ModalHeader toggle={this.toggle}>Restaurant Login</ModalHeader>
-                <ModalBody>
-                    <Form>
-                        <Input type="email" placeholder="Email" />
-                        <Input type="password" placeholder="Password" />
-                    </Form>
-                </ModalBody>
-                <ModalFooter>
-                    <Link to={'/welcome'}>
-                        <Button color="primary" onClick={this.toggle}>
-                            Login
-            </Button>{" "}
-                    </Link>
-                </ModalFooter>
-            </Modal>
-        </div>;
-    }
+function TopNav(props) {
+  const { classes } = props;
+  return (
+    <div className={classes.root}>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" color="inherit" className={classes.grow}>
+            News
+          </Typography>
+          <Button color="inherit">Login</Button>
+           <Button color="white"><Link to="/Login">Login/Signup</Link></Button>
+           <Link to="/resume">Login&Signup</Link>
+
+
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
 }
+
+TopNav.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(TopNav);
+
+// import { Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox } from '@material-ui/core';
+// import { Face, Fingerprint } from '@material-ui/icons'
+// const styles = theme => ({
+//     margin: {
+//         margin: theme.spacing.unit * 5,
+//     },
+//     padding: {
+//         padding: theme.spacing.unit
+//     }
+    
+// });
+
+// class TopNav extends React.Component {
+//     render() {
+//         const { classes } = this.props;
+//         return (
+//             <Paper className={classes.padding}>
+//                 <div className={classes.margin}>
+//                     <Grid container spacing={8} alignItems="flex-end">
+//                         <Grid item>
+//                             <Face />
+//                         </Grid>
+//                         <Grid item md={true} sm={true} xs={true}>
+//                             <TextField id="username" label="Username" type="email" fullWidth autoFocus required />
+//                         </Grid>
+//                     </Grid>
+//                     <Grid container spacing={8} alignItems="flex-end">
+//                         <Grid item>
+//                             <Fingerprint />
+//                         </Grid>
+//                         <Grid item md={true} sm={true} xs={true}>
+//                             <TextField id="username" label="Password" type="password" fullWidth required />
+//                         </Grid>
+//                     </Grid>
+//                     <Grid container alignItems="center" justify="space-between">
+//                         <Grid item>
+//                             <FormControlLabel control={
+//                                 <Checkbox
+//                                     color="primary"
+//                                 />
+//                             } label="Remember me" />
+//                         </Grid>
+//                         <Grid item>
+//                             <Button disableFocusRipple disableRipple style={{ textTransform: "none" }} variant="text" color="primary">Forgot password ?</Button>
+//                         </Grid>
+//                     </Grid>
+//                     <Grid container justify="center" style={{ marginTop: '10px' }}>
+//                         <Button variant="outlined" color="primary" style={{ textTransform: "none" }}>Login</Button>
+//                     </Grid>
+//                 </div>
+//             </Paper>
+//         );
+//     }
+// }
+
+// export default withStyles(styles)(TopNav);
