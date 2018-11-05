@@ -54,7 +54,7 @@ class TransactionsItem extends Component {
   }
 }
 
-mapDispatchToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
     bindActionCreators(
         {
             deleteTransaction,

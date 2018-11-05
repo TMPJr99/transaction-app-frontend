@@ -37,7 +37,7 @@ function TopNav(props) {
             News
           </Typography>
           <Button color="inherit">Login</Button>
-           <Button color="white"><Link to="/Login">Login/Signup</Link></Button>
+           <Button color="white" onClick={props.renderForm}><Link to="/Login">Login/Signup</Link></Button>
            <Link to="/resume">Login&Signup</Link>
 
 
