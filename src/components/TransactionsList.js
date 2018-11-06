@@ -11,9 +11,8 @@ class TransactionsList extends Component {
     }
 
     render() {
-
             if (this.props.transactions) {
-                return <div className="TransactionsContainer">
+                return <div>
                     <Row>
                         {this.props.transactions.map(transaction => (
                             <TransactionsItem key={transaction.id} transaction={transaction} />
