@@ -58,7 +58,7 @@ export default class TopNav extends React.Component {
         </ModalBody>
         <ModalFooter>
           <Button color="primary" onClick={this.toggle}>
-            <Link to="login" className="innerLogin"> Login</Link>
+            <Link to="/transactions" className="innerLogin"> Login</Link>
           </Button>
         </ModalFooter>
         </Modal>
