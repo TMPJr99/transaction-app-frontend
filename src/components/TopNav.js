@@ -13,6 +13,8 @@ import {
   Input
 } from "reactstrap";
 import { Link } from 'react-router-dom';
+import "../App.css";
+
 
 export default class TopNav extends React.Component {
   constructor(props) {
@@ -43,12 +45,14 @@ export default class TopNav extends React.Component {
       {/* Navbar ends */}
 
       {/* Modal Begins */}
+      <div className="myModal">
 
-      <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+      <Modal isOpen={this.state.modal} toggle={this.toggle} className="myModal">
         <ModalHeader toggle={this.toggle}>Login/Sign up</ModalHeader>
         <ModalBody>
           <Form>
-            <Input type="email" placeholder="Email" />
+              <Input type="email" placeholder="Email" />
+              <br />
             <Input type="password" placeholder="Password" />
           </Form>
         </ModalBody>
@@ -57,9 +61,11 @@ export default class TopNav extends React.Component {
             <Link to="login"> Login</Link>
           </Button>
         </ModalFooter>
-      </Modal>
+        </Modal>
+      </div>
 
       {/* Modal Ends */}
+
     </div>;
   }
 }

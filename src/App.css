@@ -1,0 +1,33 @@
+.Landing {
+  text-align: center;
+  align-items: center;
+  background: url("https://video-images.vice.com/articles/5966a0fb9d542017b4db7af9/lede/1499898108076-make-it-rain-weezy.jpeg") no-repeat center center fixed;
+  background-size: cover;
+   bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  position: absolute;
+}
+
+.innerLanding {
+    background-color: snow;
+    width: 40%;
+    margin: 200px auto;
+    text-align: center;
+    border-radius: 5px;
+    opacity: .8;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 5em;
+}
+
+p {
+    font-size: 1.8em;
+}
+
+.myModal {
+    margin-top: 15%;
+}
