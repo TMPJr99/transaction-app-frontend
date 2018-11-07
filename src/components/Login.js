@@ -1,9 +1,9 @@
 import React  from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { login } from '../redux/actions';
 import { Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox } from '@material-ui/core';
 import { Face, Fingerprint } from '@material-ui/icons'
-import { login } from '../redux/actions';
 const styles = theme => ({
     margin: {
         margin: theme.spacing.unit * 5,
@@ -16,9 +16,7 @@ const styles = theme => ({
 
 class Login extends React.Component {
 
-  handleClick = () => {
-    this.props.login();
-  }
+
 
     render() {
         const { classes } = this.props;
@@ -54,7 +52,7 @@ class Login extends React.Component {
                         </Grid>
                     </Grid>
                     <Grid container justify="center" style={{ marginTop: '10px' }}>
-                        <Button onClick={this.handleClick()} variant="outlined" color="primary" style={{ textTransform: "none" }}>Login</Button>
+                        <Button onClick={() => this.props.login()} variant="outlined" color="primary" style={{ textTransform: "none" }}>Login</Button>
                     </Grid>
                 </div>
             </Paper>
@@ -66,4 +64,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   login
 }, dispatch)
 
-export default connect(null, mapDispatchToProps)(withStyles(styles)(Login));
+export default connect(null, mapDispatchToProps)(withStyles(styles) (Login));

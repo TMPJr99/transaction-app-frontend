@@ -21,13 +21,15 @@ class LandingPage extends Component {
       return (
         <div>
           <TopNav renderForm={this.renderForm}></TopNav>
-          <Login></Login>
+          <Login login={this.props.login}></Login>
         </div>
     )
     }else{
-      return (<div>
-        <TopNav renderForm={this.renderForm}></TopNav>
-      </div>)
+      return (
+        <div>
+          <TopNav renderForm={this.renderForm}></TopNav>
+          </div>
+      )
     }
   }
 
@@ -35,10 +37,11 @@ class LandingPage extends Component {
     render() {
         return (
           <div>
-          {this.renderWhat()}
+            {this.renderWhat}
           </div>
     )
   }
 }
+
 
 export default LandingPage;
