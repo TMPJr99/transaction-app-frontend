@@ -1,54 +1,71 @@
-import React  from 'react';
-import { Link } from "react-router-dom";
+import React from "react";
+import {
+  Navbar,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Form,
+  Input
+} from "reactstrap";
+import { Link } from 'react-router-dom';
+import "../App.css";
 
 
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+export default class TopNav extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false
+    };
 
-const styles = {
-  root: {
-    flexGrow: 1,
-  },
-  grow: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
-};
+    this.toggle = this.toggle.bind(this);
+  }
 
-function TopNav(props) {
-  const { classes } = props;
-  return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" color="inherit" className={classes.grow}>
-            News
-          </Typography>
-          <Button onClick={props.renderForm} color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+  render() {
+    return <div>
+      {/* Navbar begins */}
+
+      <Navbar color="light" light expand="md">
+        <NavbarBrand href="/">Transaction App</NavbarBrand>
+        <Nav className="ml-auto" navbar>
+          <NavItem onClick={this.toggle}>Login/Sign up</NavItem>
+        </Nav>
+      </Navbar>
+
+      {/* Navbar ends */}
+
+      {/* Modal Begins */}
+      <div className="myModal">
+
+      <Modal isOpen={this.state.modal} toggle={this.toggle} className="myModal">
+        <ModalHeader toggle={this.toggle}>Login/Sign up</ModalHeader>
+        <ModalBody>
+          <Form>
+              <Input type="email" placeholder="Email" />
+              <br />
+            <Input type="password" placeholder="Password" />
+          </Form>
+        </ModalBody>
+        <ModalFooter>
+          <Button color="primary" onClick={this.toggle}>
+            <Link to="/transactions" className="innerLogin"> Login</Link>
+          </Button>
+        </ModalFooter>
+        </Modal>
+      </div>
+
+      {/* Modal Ends */}
+
+    </div>;
+  }
 }
-
-TopNav.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(TopNav);
-
-
-
-

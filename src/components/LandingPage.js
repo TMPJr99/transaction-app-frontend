@@ -1,46 +1,20 @@
 import React, { Component } from 'react';
 import TopNav from './TopNav';
-import Main from './main';
-import Login from './Login';
-
+import "../App.css"
 
 class LandingPage extends Component {
-
-  state = {
-    renderForm: false,
-  }
-
-  renderForm = () => {
-      this.setState({
-        renderForm: this.state.renderForm ? false : true,
-      })
-  }
-
-  renderWhat = () => {
-    if(this.state.renderForm){
-      return (
-        <div>
-          <TopNav renderForm={this.renderForm}></TopNav>
-          <Login login={this.props.login}></Login>
+  render() {
+    return <div className="Landing">
+        <TopNav />
+        <div className="innerLanding">
+        <h1><b>Get Money</b></h1>
+          <p>
+            <i>"Too much money ain't enough money"</i> <br />- Lil Wayne
+          </p>
         </div>
-    )
-    }else{
-      return (
-        <div>
-          <TopNav renderForm={this.renderForm}></TopNav>
-          </div>
-      )
-    }
+      </div>;
   }
 
-
-    render() {
-        return (
-          <div>
-            {this.renderWhat}
-          </div>
-    )
-  }
 }
 
 
