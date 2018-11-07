@@ -1,4 +1,7 @@
 import React from "react";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { login } from "../redux/actions";
 import {
   Navbar,
   NavbarBrand,
@@ -16,7 +19,7 @@ import { Link } from 'react-router-dom';
 import "../App.css";
 
 
-export default class TopNav extends React.Component {
+class TopNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,6 +33,11 @@ export default class TopNav extends React.Component {
     this.setState({
       modal: !this.state.modal
     });
+  }
+
+  handleClick() {
+    this.props.login()
+    .then(()=>this.toggle);
   }
   render() {
     return <div>
@@ -57,7 +65,7 @@ export default class TopNav extends React.Component {
           </Form>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={this.toggle}>
+          <Button color="primary" onClick={() => this.handleClick}>
             <Link to="/transactions" className="innerLogin"> Login</Link>
           </Button>
         </ModalFooter>
@@ -69,3 +77,9 @@ export default class TopNav extends React.Component {
     </div>;
   }
 }
+
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    login
+  }, dispatch)
+export default connect(null, mapDispatchToProps)(TopNav);
