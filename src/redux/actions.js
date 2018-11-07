@@ -22,7 +22,6 @@ export const login = (user) => {
     token = response.data.token;
     return dispatch({
       type: LOGIN,
-      payload: response.data.token
     })
   })
 }

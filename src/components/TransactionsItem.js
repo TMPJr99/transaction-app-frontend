@@ -5,11 +5,7 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-  ModalFooter,
-  FormGroup,
-  Label,
-  Input,
-  Form
+  ModalFooter
 } from "reactstrap";
 import { connect } from "react-redux";
 import {deleteTransaction, editTransaction} from "../redux/actions"

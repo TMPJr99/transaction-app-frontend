@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Row } from "reactstrap";
 import { selectAll } from "../redux/actions";
 import { connect } from "react-redux";
+import { bindActionCreators } from 'redux';
 import TransactionsItem from "./TransactionsItem";
 
 class TransactionsList extends Component {
@@ -24,12 +25,14 @@ class TransactionsList extends Component {
             }
         }
 }
-    
-const mapStateToProps = state => {
-    return {
-        transactions: state.transactions
-    }
-}
+
+const mapStateToProps = state => ({
+    transactions: state.transactions
+  })
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    selectAll
+  }, dispatch)
 
 
-export default connect(mapStateToProps, {selectAll})(TransactionsList);
+export default connect(mapStateToProps, mapDispatchToProps)(TransactionsList);

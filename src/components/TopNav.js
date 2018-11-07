@@ -36,8 +36,7 @@ class TopNav extends React.Component {
   }
 
   handleClick() {
-    this.props.login()
-    .then(()=>this.toggle);
+    this.props.login();
   }
   render() {
     return <div>
@@ -58,17 +57,17 @@ class TopNav extends React.Component {
       <Modal isOpen={this.state.modal} toggle={this.toggle} className="myModal">
         <ModalHeader toggle={this.toggle}>Login/Sign up</ModalHeader>
         <ModalBody>
-          <Form>
+          <Form onSubmit={() => this.handleClick}>
               <Input type="email" placeholder="Email" />
               <br />
             <Input type="password" placeholder="Password" />
-          </Form>
-        </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={() => this.handleClick}>
+          <Button color="primary" onClick={this.toggle} type="submit">
             <Link to="/transactions" className="innerLogin"> Login</Link>
           </Button>
         </ModalFooter>
+        </Form>
+        </ModalBody>
         </Modal>
       </div>
 
